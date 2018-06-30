@@ -1,4 +1,4 @@
-# ntp-bcp
+# ntp-i-do
 Working Directory for IETF NTP "I Do" proposal
 
 If you want to see how the document looks when submitted to xml2rfc.tools.ietf.org, just click this link:
