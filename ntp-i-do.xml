@@ -38,7 +38,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-stenn-ntp-i-do-03" ipr="trust200902">
+<rfc category="std" docName="draft-stenn-ntp-i-do-05" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -85,7 +85,7 @@
 
 <!-- other authors -->
 
-    <date month="November" year="2017"/>
+    <date year="2018"/>
 
     <!-- If the month and year are both specified and are the current ones,
          xml2rfc will fill in the current day for you. If only the current
@@ -213,22 +213,20 @@
 +---------------------------------------------------------------+]]></artwork>
         </figure></t>
 
-      <t>Field Type: TBD (Recommendation for IANA: 0x0007 (I-Do, MAC
-	required), 0x2007 (I-Do, MAC OPTIONAL), 0x8007 (I-Do Response, MAC
-	required), 0xA007 I-Do Response, MAC OPTIONAL))</t>
+      <t>Field Type: TBD (Recommendation for IANA: 0x0007 (I-Do), 0x8007 (I-Do Response))</t>
       <t>Field Length: as needed</t>
       <t>Payload: An enumeration of the supported base Field Types,
 	followed by any padding, 0x0000, needed to fill the payload to the
 	desired 32-bit boundary.</t>
       <t>Example: A system that wants to advertise support for Autokey and
-	I-Do, sending to a system that wants to advertise support for I-Do,
+	I-Do, sending to a system that responds with support for I-Do,
 	NTS, and MAC-As-Extension-Field
 	<figure title="NTP Extension Field: I-Do">
           <artwork name="NTP Extension Field: I-Do"><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +---------------+---------------+-------------------------------+ 
-|    Field Type (0x2007)        |   Field Length (0x0008)       |
+|    Field Type (0x0007)        |   Field Length (0x0008)       |
 +-------------------------------+-------------------------------+ 
 |            0x0007             |           0x0002              | 
 +-------------------------------+-------------------------------+]]></artwork>
@@ -238,7 +236,7 @@
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +---------------+---------------+-------------------------------+ 
-|    Field Type (0xA007)        |   Field Length (0x000a)       |
+|    Field Type (0x8007)        |   Field Length (0x000a)       |
 +-------------------------------+-------------------------------+ 
 |            0x0003             |           0x0004              | 
 +-------------------------------+-------------------------------+ 
@@ -246,23 +244,21 @@
 +-------------------------------+-------------------------------+]]></artwork>
         </figure></t>
       <t>The sender of any I-Do extension field MUST send an extension field
-	with a Field Type of 0x0007 (I-Do, MAC required) or 0x2007 (I-Do,
-	MAC OPTIONAL) and SHOULD include a payload with any 0x0000 padding
-	values after enumerating the supported base Extension Field Types.
-	If the responding system recognizes the I-Do extension field, its
-	response MUST include an extension field with a Field Type of 0x8007
-	(I-Do Response, MAC required) or 0xA007 (I-Do Response, MAC
-	OPTIONAL), and SHOULD include a payload with any 0x0000 padding
-	values after enumerating the supported base Extension Field
-	Types.</t>
+	with a Field Type of 0x0007 (I-Do) and SHOULD include a payload with
+	any 0x0000 padding values after enumerating the supported base
+	Extension Field Types.  If the responding system recognizes the I-Do
+	extension field, its response MUST include an extension field with a
+	Field Type of 0x8007 (I-Do Response), and SHOULD include a payload
+	with any 0x0000 padding values after enumerating the supported base
+	Extension Field Types.</t>
 
       <t>Any system that receives an I-Do extension field as either an
 	"offer" or a "response" SHOULD scan the entire payload looking for
 	nonzero values that specify the capabilities of the remote
 	association.</t>
 
-      <t>Any system that receives an I-Do "offer", 0x0007 or 0x2007, SHOULD
-	reply with an I-Do "response", 0x8007 or 0xA007.</t>
+      <t>Any system that receives an I-Do "offer", 0x0007, SHOULD reply with
+	an I-Do "response", 0x8007.</t>
 
       <t>Any system that sends an I-Do "offer" or "response" may send as few
 	or as many of its supported Field Types as it chooses.  At any
@@ -287,9 +283,7 @@
       <t>This memo requests IANA to allocate NTP Extension Field Types:
 	<list>
 	  <t>0x0007 (I-DO)</t>
-	  <t>0x2007 (I-DO, MAC OPTIONAL)</t>
 	  <t>0x8007 (I-DO Response)</t>
-	  <t>0xA007 (I-DO Response, MAC OPTIONAL)</t>
 	</list>
 	and I-DO types:
 	<list>
