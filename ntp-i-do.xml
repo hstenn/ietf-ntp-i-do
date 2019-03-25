@@ -373,25 +373,21 @@
       <!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5905.xml"?-->
 
       &RFC5905;
-
-      <!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5906.xml"?-->
-
-      &RFC5906;
     </references>
 
     <!-- Here we use entities that we defined at the beginning. -->
 
-    <!-- SW: Except that we're not really using these...
-
-	HMS: Should we be referencing the related drafts?
-
     <references title="Informative References">
+      <!--
       &RFC3552;
 
       &I-D.narten-iana-considerations-rfc2434bis;
- 
+      -->
+
+      <!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.5906.xml"?-->
+
+      &RFC5906;
     </references> 
-     -->
 
     <!--
     <section anchor="app-additional" title="Additional Stuff">
