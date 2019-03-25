@@ -329,7 +329,7 @@
 	  <t>0x0007 (I-DO)</t>
 	  <t>0x8007 (I-DO Response)</t>
 	</list>
-	and I-DO types:
+	and NTP Extension Field I-DO types:
 	<list>
 	  <t>0xFEFF (I-DO Leap Smear REFIDs)</t>
 	  <t>0xFFFF (I-DO IPv6 REFID hash)</t>
@@ -338,7 +338,14 @@
     </section>
 
     <section anchor="Security" title="Security Considerations">
-      <t>Additional information TBD</t>
+      <t>
+	No addtional or unusual security considerations are expected if this proposal is adopted.
+      </t>
+
+      <t>
+	No feedback has been received suggesting this proposal creates
+	any new security considerations.
+      </t>
     </section>
   </middle>
 
